@@ -1,0 +1,100 @@
+<template>
+    <div>
+        <style>
+            div.logDiv {
+                height:200px;width:200px;overflow:scroll;
+            }
+            div.logDiv p{
+                display: block;
+                font-size: 14px;
+            }
+            </style>
+    <modal v-for="(win,index) in windows"
+     :key="win.id" @on-visible-change="windows[index].onVisibleChange" 
+     class="jspreviewer" ref="jspreviewerinst" :mask-closable="false" :mask="false"
+     footer-hide draggable v-model="win"
+     :width="win.tool?win.style.widthWithDev:win.style.width"
+     closable="false" transfer="false">
+     <p slot="header">
+        <span>{{OpenBlock.i('Simulator')+'-'+win.id}}</span>
+        <tooltip :content="OpenBlock.i('开发者工具')" :delay="500" placement="top">
+            <i-button size="small" style="height:18px;font-size:12px;margin-bottom:4px;" @click="win.tool=win.tool==='devTool'?null:'devTool'">
+                <Icon type="ios-hammer"></Icon>
+            </i-button>
+        </tooltip>
+        <tooltip :content="OpenBlock.i('检视')" :delay="500" placement="top">
+            <i-button size="small" style="height:18px;font-size:12px;margin-bottom:4px;" @click="win.tool=win.tool==='Inspector'?null:'Inspector'">
+                <Icon type="ios-eye" />
+            </i-button>
+        </tooltip>
+    </p>
+    <!-- <i-button size="small" @click="pause(win)">{{OpenBlock.i("pause")}}</i-button>
+    <i-button size="small" @click="resume(win)">{{OpenBlock.i("resume")}}</i-button> -->
+    <table style="border:0;padding:0;margin:0;">
+        <tr style="border:0;padding:0;margin:0;">
+            <td style="border:0;padding:0;margin:0;width:375px;vertical-align:top;">
+                <Alert v-if="win.msg" :type="win.msg.stype">
+                    <Icon v-if="win.msg.type==='usr'" type="md-person" />
+                    <Icon v-else="win.msg.type==='sys'"  type="md-cog" />
+                    <a @click="tableCell(win.msg)"> 
+                        {{OpenBlock.i(win.msg.content)}}
+                    </a>
+                </Alert>
+                <div class="jspv_wrap" :style="win.style">
+                    <iframe ref="jsprevieweriframe" class="jsprevieweriframe" scrolling="no" src="../jsruntime/test/index.html">
+                    </frame>
+                </div>
+            </td>
+            <td v-show="win.tool==='devTool'" style="width:300px;overflow:auto;border:0;padding:10px;margin:0;vertical-align:top;">
+                <div style="width:100%;overflow:auto;">
+                <select name="screen" class="screen-select" ref="jsprevieweriframe_screen"
+                @change="changeScreen(win,$event)">
+                   <option value="666px">1333 9:16</option>
+                   <option value="640px">1280</option>
+                   <option selected value="600px">1200 10:16</option>
+                   <option value="500px">1000 4:3</option>
+                   <option value="375px">750 1:1</option>
+                   <option value="281px">562 3:4</option>
+                   <option value="234px">468 16:10</option>
+                   <option value="210px">421 16:9</option>
+               </select>
+               <tooltip :content="OpenBlock.i('重启')" :delay="500" placement="top">
+               <i-button size="small"  @click="restart(win)"><Icon type="ios-refresh" /></i-button>
+               </tooltip>
+               <!-- <tooltip :content="OpenBlock.i('显示日志')" :delay="500">
+               <input type="checkbox" checked @change="showLogChange(win)" v-bind="win.showLog"/>
+               </tooltip> -->
+               <tooltip :content="OpenBlock.i('清除日志')" :delay="500" placement="top">
+               <i-button size="small"  @click="clearLog(win)"><Icon type="ios-trash" /></i-button>
+               </tooltip>
+               <tooltip :content="OpenBlock.i('自动滚动')" :delay="500" placement="top">
+               <input type="checkbox" checked @change="toggleFollowNewLog(win)" v-bind="win.followNewLog"/>
+               </tooltip>
+           {{OpenBlock.i("Grid")}} 
+           <i-input number @on-change="gridChange(win)" size="small" style="width:40px" v-model="win.gridX"/>
+           :
+           <i-input number @on-change="gridChange(win)" size="small" style="width:40px" v-model="win.gridY"/>
+           <span style="display:inline-block;width:30px">{{win.mousePosition.x}}</span>
+           ,
+           <span style="display:inline-block;width:30px">{{win.mousePosition.y}}</span>
+           <br/>
+           <tooltip :delay="500" placement="top">
+                <div slot="content">
+                    <p>收集日志等级</p>
+                    <p><i>数字越小越详细，对性能影响越大。</i></p>
+                </div>
+                {{OpenBlock.i("用户")}}
+                <i-input number @on-change="logLevelChange(win)" size="small" style="width:40px" v-model="win.usrLogLevel"/>
+                {{OpenBlock.i("系统")}}
+                <i-input number @on-change="logLevelChange(win)" size="small" style="width:40px" v-model="win.sysLogLevel"/>
+            </tooltip>
+           <div ref="logDiv" class="logDiv" style="height:500px;width:100%;overflow:auto;">
+            <i-table size="small" stripe="true" :columns="logDivColumns" :data="win.log"></i-table>
+           </div>
+        </div>
+            </td>
+        </tr>
+    </table>
+</modal>
+</div>
+</template>

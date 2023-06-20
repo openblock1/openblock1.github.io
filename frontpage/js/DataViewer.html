@@ -1,0 +1,56 @@
+<div class="dataViewer" :id="sn">
+  <page
+    :current="page.current"
+    :page-size="page.size"
+    :page-size-opts="page.sizeOpt"
+    :total="Object.keys(importer.dataReorganizingContext.compiled[value]).length"
+    size="small"
+    show-elevator
+    show-sizer
+    show-total
+    @on-change="onpagechange"
+    @on-page-size-change="onpagesizechange"
+  />
+  <table>
+    <thead>
+      <tr>
+        <th
+          v-for="col in importer.dataReorganizingContext.structAST[value].fields"
+        >
+          {{col.name}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="(col,colIdx) in Object.keys(importer.dataReorganizingContext.compiled[value])"
+        v-bind:item="col"
+        v-bind:index="colIdx"
+        v-if="colIdx<=page.size*page.current && colIdx>=page.size*(page.current-1)"
+      >
+        <td
+          v-for="fld in importer.dataReorganizingContext.structAST[value].fields"
+        >
+          <component
+            v-bind:is="fld.component()"
+            v-model="importer.dataReorganizingContext.compiled[value][col]"
+            :field="fld"
+          ></component>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <page
+    :current="page.current"
+    :page-size="page.size"
+    :page-size-opts="page.sizeOpt"
+    :total="Object.keys(importer.dataReorganizingContext.compiled[value]).length"
+    size="small"
+    show-elevator
+    show-sizer
+    show-total
+    @on-change="onpagechange"
+    @on-page-size-change="onpagesizechange"
+  />
+</div>

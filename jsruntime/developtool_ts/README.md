@@ -1,0 +1,1 @@
+由于TypeScript是JavaScript的纯超级，所以只需要提供TypeScript的源代码扫描工具，根据interface生成对应的本地调用接口，不需要独立写运行时。

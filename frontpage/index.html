@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>IkunBlock IDE</title>
+    <link rel="icon" href="/logo/logo.ico" sizes="16x16">
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            min-width: 800px;
+            margin: 0;
+        }
+        
+        #system-loading {
+            height: 100%;
+            width: 100%;
+            /* text-align: center; */
+            background-color: #f5f7f9;
+            /* background-color: #fff; */
+            z-index: 1400;
+            position: fixed;
+        }
+        
+        .loader {
+            color: #515a6e;
+            font-size: 90px;
+            text-indent: -9999em;
+            overflow: hidden;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            margin: 72px auto;
+            position: relative;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-animation: load6 10.8s infinite ease, round 0.8s infinite ease;
+            animation: load6 0.8s infinite ease, round 0.8s infinite ease;
+        }
+        
+        @-webkit-keyframes load6 {
+            0% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+            5%,
+            95% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+            10%,
+            59% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+            }
+            20% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+            }
+            38% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+            }
+            100% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+        }
+        
+        @keyframes load6 {
+            0% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+            5%,
+            95% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+            10%,
+            59% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+            }
+            20% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+            }
+            38% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+            }
+            100% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+        }
+        
+        @-webkit-keyframes round {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes round {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <!-- <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script>
+        // VConsole 默认会挂载到 `window.VConsole` 上
+        var vConsole = new window.VConsole();
+    </script> -->
+    <script type="text/javascript">
+        (function() {
+            // 启动默认是1，因为html里遮罩默认是开启的
+            let layers = 1;
+            window.hideOverallLoading = () => {
+                let loading = document.getElementById('system-loading');
+                layers--;
+                if (layers <= 0) {
+                    loading.style.display = 'none';
+                    layers = 0;
+                }
+            }
+
+            window.showOverallLoading = () => {
+                let loading = document.getElementById('system-loading');
+                layers++;
+                if (layers <= 0) {
+                    layers = 1;
+                }
+                loading.style.display = 'block';
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="system-loading">
+        <div class="loader"></div>
+    </div>
+    <div id="openblock" style="display: none;">
+        <layout v-if="showEditor" :style="{height:'100%'}">
+            <i-header id="header" :style="{height:'30px',paddingLeft:'45px',zIndex:'1000',color:'white'}" class="ns">
+                <i-menu style="height:100%;padding-top: 1px;color:white;" mode="horizontal" theme="dark" active-name="1">
+                    <div class="layout-nav">
+                        <span style="float:left;display: inline;">
+                            <i-select v-if="OpenBlock.connectors.length > 1" v-model="OpenBlock.currentConnector"
+                                size="small" style="width:200px" @on-change="useConnector">
+                                <i-option v-for="item in OpenBlock.connectors" :value="item" :key="item.name">
+                                    {{ OpenBlock.i(item.name) }}
+                                </i-option>
+                            </i-select>
+                            <!-- <span v-if="OpenBlock.connectors.length == 1 && OpenBlock.currentConnector"
+                                style="color:white;padding-bottom: 5px;">{{OpenBlock.currentConnector.name}}</span> -->
+                        <tooltip v-if="OpenBlock.currentConnector && OpenBlock.currentConnector.config" :content="OpenBlock.i('设置')" :delay="1000">
+                            <a class="headerBtn">
+                                <icon type="md-settings" @click="OpenBlock.currentConnector.config.bind(OpenBlock.currentConnector)()" size="25" style="cursor:pointer;vertical-align: -5px;"></icon>
+                            </a>
+                        </tooltip>
+                        <tooltip v-if="OpenBlock.currentConnector && OpenBlock.currentConnector.runProject" :content="OpenBlock.i('运行')" :delay="1000">
+                            <a class="headerBtn">
+                                <icon type="ios-play" @click="runProject" size="25" style="cursor:pointer;vertical-align: -5px;"></icon>
+                            </a>
+                        </tooltip>
+                        <keep-alive v-for="p in extSlot.lefttoolbox">
+                            <component v-bind:is="p"></component>
+                        </keep-alive>
+                        <dropdown placement="bottom-start">
+                            <a href="javascript:void(0)">
+                                <icon type="ios-download" size="25" />
+                            </a>
+                            <dropdown-menu slot="list">
+                                <dropdown-item>
+                                    <a @click="saveExeFile">
+                                        <icon type="md-code-download" size="25"></icon>
+                                        {{OpenBlock.i("导出字节码")}}
+                                    </a>
+                                </dropdown-item>
+                                <dropdown-item>
+                                    <a class="headerBtn" @click="exportProjectZip">
+                                        <icon type="md-cloud-download" size="25"></icon>
+                                        {{OpenBlock.i("导出完整工程")}}
+                                    </a>
+                                </dropdown-item>
+                                <dropdown-item>
+                                    <a class="headerBtn" @click="importProjectZip">
+                                        <icon type="md-cloud-upload" size="25"></icon>
+                                        {{OpenBlock.i("导入完整工程")}}
+                                    </a>
+                                </dropdown-item>
+                        </dropdown>
+                        <tooltip v-if="compiling" style="vertical-align: top;" content="正在编译" :delay="1000" theme="dark">
+                            <spin>
+                                <icon type="ios-loading" size="15" class="spin-icon-load"></icon>
+                            </spin>
+                        </tooltip>
+                        </span>
+                        <div style="text-align: center;display:inline-block;width:70%">
+                            <input v-if="editProjectName" style="color:black" autofocus v-model="projectName" @blur="updateProjectName" @keypress="updateProjectNameKeypress"></input>
+                            <a v-else-if="projectName" style="color:white;font-weight: bold;font-size:22px;" @click="doEditProjectName">{{projectName}}</a>
+                            <a v-else @click="doEditProjectName">{{OpenBlock.i("Click to set project name")}}</a>
+                        </div>
+                        <div style="float: right;margin-right: 15px;">
+                            <keep-alive v-for="p in extSlot.righttoolbox">
+                                <component v-bind:is="p"></component>
+                            </keep-alive>
+                        </div>
+                    </div>
+                </i-menu>
+            </i-header>
+            <layout>
+                <sider id="side1" class="ns" width="40" @click="triggleSider()">
+                    <a v-for="comp in siderComponents" v-bind:class="{siderOpened:comp.name==siderUsing}">
+                        <tooltip :content="comp.tooltip" placement="right" :delay="1000">
+                            <icon :type="comp.icon" @click="triggleSider(comp.name)"></icon>
+                        </tooltip>
+                    </a>
+                </sider>
+                <layout>
+                    <i-content>
+                        <div id="contentTabs">
+                            <tabs v-model="showingTabName" type="line" size="small" :animated="false" :capture-focus="true">
+                                <tab-pane v-for="(tab,index) in tabs" :key="tab.name" :label="tab.label" :name="tab.name">
+                                    <keep-alive>
+                                        <component v-bind:is="tab.content" v-model="tab.key" :beforedestroy="tab.beforeContentDestroy" :builder="tab.contentBuilder">
+                                        </component>
+                                    </keep-alive>
+                                </tab-pane>
+                            </tabs>
+                        </div>
+                        <div id="rbToolbox">
+                            <i-button id="errorBtn" v-if="hasError || showErrorWindow" type="error" shape="circle" icon="ios-bug" @click="showErrorWindow=!showErrorWindow"></i-button>
+                        </div>
+                        <Card v-if="showErrorWindow" id="errorWindow">
+                            <p slot="title" class="ns">
+                                <Icon type="ios-bug-outline"></Icon>
+                                错误
+                            </p>
+                            <div id="errorList">
+                                <p v-for="err in errors">
+                                    <a class="error" @click="highlightErrBlock(err)">{{err.src.name}}:{{err.err.fsm}}:{{err.err.state}}{{err.err.func}}:{{err.err.message}}</a>
+                                </p>
+                            </div>
+                        </Card>
+                    </i-content>
+                </layout>
+            </layout>
+        </layout>
+        <Modal value="showRenameDialog" key="1" :value="renameDialog" :title="renameDialog.title" @on-ok="renameDialog.ok" @on-cancel="renameDialog.cancel" :closable="false" :mask-closable="false">
+            <div>
+                <i-input autofocus v-model="renameDialog.value" :placeholder="renameDialog.oldValue" />
+            </div>
+        </Modal>
+        <Modal v-if="showVariableInfo" :value="createVarInfo" title="变量" key="2" id="CreateVarDiv" @on-ok="applyCreateVar">
+            <table>
+                <tr>
+                    <td>名称</td>
+                    <td><input type="text" v-model="createVarInfo.name" id="newVar_name"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>类型</td>
+                    <td>
+                        <auto-complete v-model="createVarInfo.type" :data="createVarInfo.baseData" @on-search="avalibleVarTypes" @on-change="avalibleVarTypes" placeholder="input here" style="width:200px"></auto-complete>
+                    </td>
+                </tr>
+                <tr>
+                    <td>集合</td>
+                    <td>
+                        <radio-group v-model="createVarInfo.wrap">
+                            <radio label="">
+                                <span>无</span>
+                            </radio>
+                            <radio label="list">
+                                <span>列表</span>
+                            </radio>
+                            <radio label="string_map">
+                                <span>文字映射</span>
+                            </radio>
+                            <radio label="integer_map">
+                                <span>整数映射</span>
+                            </radio>
+                        </radio-group>
+                    </td>
+                </tr>
+            </table>
+        </Modal>
+        <div v-if="showEditor" id="leftsider-flyout" v-show="siderUsing!=null">
+            <a id="leftsider-flyout-close-mask" @click="siderUsing=null"></a>
+            <keep-alive>
+                <component v-bind:is="siderUsing"></component>
+            </keep-alive>
+        </div>
+
+        <div v-if="showEditor" v-for="p in extSlot.subwindows">
+            <component v-bind:is="p"></component>
+        </div>
+        <div v-for="p in extSlot.windows">
+            <component v-bind:is="p"></component>
+        </div>
+        <back-top></back-top>
+        <div v-if="icp" align="center" style="display: block;position:fixed;bottom:0;right:0;z-index:1000;"><a href="http://beian.miit.gov.cn/" target=_blank>{{icp}}</a></div>
+    </div>
+    <!-- <script src="core/3rd/blockly/blockly_uncompressed.js"></script> -->
+    <script src="core/3rd/axios.min.js"></script>
+    <script src="3rd/qrcode.min.js"></script>
+    <script src="js/fileOD.js"></script>
+    <script src="3rd/echarts.min.js"></script>
+    <script src="3rd/moment-with-locales.js"></script>
+    <script src="3rd/vue.min.js"></script>
+    <!-- <script src="3rd/antd-with-locales.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="3rd/antd.min.css"> -->
+    <link rel="stylesheet" href="3rd/iview.css">
+    <script src="3rd/iview.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/index2.css">
+    <script src="3rd/commonmark.js"></script>
+    <script src="3rd/dom-to-image.min.js"></script>
+    <script src="core/ub/OpenBlock.js"></script>
+    <script src="js/asyncprompt.js"></script>
+    <script src="js/BlocklyEditor.js"></script>
+    <script src="js/DataViewer.js"></script>
+    <script src="js/index2.js"></script>
+    <script src="js/htmls/logic/index.js"></script>
+    <script src="js/htmls/dataset/index.js"></script>
+    <script src="js/htmls/help/index.js"></script>
+    <script src="js/htmls/assets/assets.js"></script>
+    <script src="js/htmls/searchblock/searchblock.js"></script>
+    <!-- <script src="../iframeconnector/iframeconnector.js"></script> -->
+    <script src="js/pinflyout.js"></script>
+    <script src="../iframeconnector/network.js"></script>
+    <script src="../static/OpenBlockComponent.js"></script>
+</body>
+
+</html>

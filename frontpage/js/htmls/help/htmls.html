@@ -1,0 +1,12 @@
+<modal id="openblock-help" :mask-closable="false" sticky :mask="false" footer-hide draggable v-model="enabled"
+    width="400" closable="false" title="文档">
+    <p v-if="docCache[currentDoc]===true">正在加载</p>
+    <div v-else-if="docCache[currentDoc]" v-html="marked" style="width:360px;height:500px;overflow:auto;">
+    </div>
+    <div v-else-if="blocklyHelpUrl[currentDoc]">
+        <a target="_blank" :href="blocklyHelpUrl[currentDoc]">{{currentDoc}} 原始文档</a>
+    </div>
+    <p v-else>
+        没有找到 {{currentDoc}} 的文档
+    </p>
+</modal>

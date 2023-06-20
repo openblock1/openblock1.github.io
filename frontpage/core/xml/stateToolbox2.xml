@@ -1,0 +1,256 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<category name="%{BKY_SEARCH}" categorystyle="event_category" custom="TOOLBOX_SEARCH_CATEGROY">
+</category>
+<category name="%{BKY_EVENT}" categorystyle="event_category" custom="NATIVE_EVENT_CATEGROY">
+</category>
+<category name="%{BKY_MESSAGE}" categorystyle="event_category">
+<block type="on_message" style="event_blocks">
+</block>
+<block type="on_message_with_arg" style="event_blocks">
+</block>
+<block type="received_message_arg">
+</block>
+<block type="received_message_sender">
+</block>
+<block type="fsm_send_message">
+</block>
+<block type="fsm_send_message_after_millisecond"><value name="WAIT_MILLISECOND"><shadow type="math_integer"><field name="NUM">100</field></shadow></value>
+</block>
+<block type="fsm_broadcast_message">
+</block>
+<block type="fsm_broadcast_message_after_millisecond"><value name="WAIT_MILLISECOND"><shadow type="math_integer"><field name="NUM">100</field></shadow></value>
+</block>
+<block type="fsm_send_dynamic_message">
+</block>
+</category>
+<category name="%{BKY_FSM_CTRL}" categorystyle="event_category">
+<block type="change_state">
+</block>
+<block type="push_state">
+</block>
+<block type="pop_state">
+</block>
+<block type="variables_self">
+</block>
+<block type="fsm_create">
+</block>
+<block type="destroy_fsm">
+</block>
+</category>
+<category name="%{BKY_DEBUG}" colour="%{BKY_LOGIC_HUE}">
+<block type="text_print"><value name="TEXT"><shadow type="text"><field name="TEXT">text</field></shadow></value>
+</block>
+<block type="text_log"><value name="MSG"><shadow type="text"><field name="TEXT">log</field></shadow></value><field name="LEVEL">4</field>
+</block>
+<block type="text_comment">
+</block>
+</category>
+<category name="%{BKY_TEXT}" colour="%{BKY_TEXTS_HUE}">
+<block type="text"><field name="TEXT"></field>
+</block>
+<block type="text_multiline">
+</block>
+<block type="text_join">
+</block>
+<block type="text_join"><mutation items="1"></mutation></block>
+<block type="text_length">
+</block>
+<block type="text_isEmpty">
+</block>
+<block type="text_indexOf">
+</block>
+<block type="text_charAt">
+</block>
+<block type="text_getSubstring">
+</block>
+<block type="text_changeCase">
+</block>
+<block type="text_count">
+</block>
+<block type="text_replace">
+</block>
+<block type="text_reverse">
+</block>
+<block type="text_key_value">
+</block>
+</category>
+<category name="%{BKY_BOOLEAN}" colour="%{BKY_LOGIC_HUE}">
+<block type="controls_if">
+</block>
+<block type="logic_compare">
+</block>
+<block type="logic_operation">
+</block>
+<block type="logic_negate">
+</block>
+<block type="logic_boolean">
+</block>
+<block type="logic_ternary">
+</block>
+</category>
+<category name="%{BKY_LOOPS}" colour="%{BKY_LOOPS_HUE}">
+<block type="controls_repeat_ext"><value name="TIMES"><shadow type="math_integer"><field name="NUM">10</field></shadow></value>
+</block>
+<block type="controls_whileUntil">
+</block>
+<block type="controls_for"><field name="VAR">i</field><value name="FROM"><shadow type="math_integer"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_integer"><field name="NUM">10</field></shadow></value><value name="BY"><shadow type="math_integer"><field name="NUM">1</field></shadow></value>
+</block>
+<block type="controls_flow_statements">
+</block>
+</category>
+<category name="%{BKY_MATH}" colour="%{BKY_MATH_HUE}">
+<block type="math_number"><field name="NUM">1</field>
+</block>
+<block type="math_integer"><field name="NUM">1</field>
+</block>
+<block type="math_arithmetic"><value name="A"><shadow type="math_integer"><field name="NUM">1</field></shadow></value><value name="B"><shadow type="math_integer"><field name="NUM">1</field></shadow></value>
+</block>
+<block type="math_single">
+</block>
+<block type="math_trig">
+</block>
+<block type="math_trig_atan2">
+</block>
+<block type="math_constant">
+</block>
+<block type="math_number_property">
+</block>
+<block type="math_round">
+</block>
+<block type="math_modulo">
+    <value name="DIVIDEND"><shadow type="math_integer"><field name="NUM">1</field></shadow></value><value name="DIVISOR"><shadow type="math_integer"><field name="NUM">1</field></shadow></value>
+</block>
+<block type="math_constrain"><value name="LOW"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="HIGH"><shadow type="math_number"><field name="NUM">100</field></shadow></value>
+</block>
+<block type="math_random_int"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">100</field></shadow></value>
+</block>
+<block type="math_random_float">
+</block>
+<block type="math_text_to_integer"><value name="TEXT"><shadow type="text"><field name="TEXT">100</field></shadow></value>
+</block>
+<block type="math_text_to_number"><value name="TEXT"><shadow type="text"><field name="TEXT">0.5</field></shadow></value>
+</block>
+</category>
+<category name="%{BKY_COLOR}" colour="%{BKY_COLOUR_HUE}">
+<block type="colour_picker">
+</block>
+<block type="colour_random">
+</block>
+<block type="colour_rgb"><value name="RED"><shadow type="math_integer"><field name="NUM">100</field></shadow></value><value name="GREEN"><shadow type="math_integer"><field name="NUM">50</field></shadow></value><value name="BLUE"><shadow type="math_integer"><field name="NUM">0</field></shadow></value>
+</block>
+<block type="colour_blend"><value name="COLOUR1"><shadow type="colour_picker"><field name="COLOUR">#ff0000</field></shadow></value><value name="COLOUR2"><shadow type="colour_picker"><field name="COLOUR">#3333ff</field></shadow></value><value name="RATIO"><shadow type="math_number"><field name="NUM">0.5</field></shadow></value>
+</block>
+</category>
+<sep>
+</sep>
+<category name="%{BKY_METHOD}" custom="UB_PROCEDURE" colour="%{BKY_PROCEDURES_HUE}">
+</category>
+<category name="%{BKY_VAR_FSM}" categorystyle="variable_fsm_category" custom="FSM_VARIABLE_DYNAMIC">
+</category>
+<category name="%{BKY_VAR_STATE}" categorystyle="variable_dynamic_category" custom="STATE_VARIABLE_DYNAMIC">
+</category>
+<category name="%{BKY_VAR_LOCAL}" categorystyle="variable_dynamic_category">
+<block type="local_variable_create">
+</block>
+<block type="local_variable_set">
+</block>
+<block type="local_variable_get">
+</block>
+</category>
+<sep>
+</sep>
+<category name="%{BKY_STRUCTS}" categorystyle="struct_category">
+<category name="基本操作" categorystyle="struct_category">
+<block type="struct_clone">
+</block>
+<block type="struct_get_field">
+</block>
+<block type="struct_set_field">
+</block>
+<block type="struct_new">
+</block>
+<block type="struct_new_collection">
+</block>
+<block type="struct_load_from_dataset">
+</block>
+<block type="struct_count_in_dataset">
+</block>
+</category>
+<category name="%{BKY_OP_STRUCT_SMAP}" categorystyle="struct_category">
+<label text="%{BKY_OP_STRUCT_SMAP}">
+</label>
+<block type="struct_map_get_value_of_key"><value name="KEY"><shadow type="text"><field name="TEXT"></field></shadow></value>
+</block>
+<block type="struct_map_set_value_of_key"><value name="KEY"><shadow type="text"><field name="TEXT"></field></shadow></value>
+</block>
+<block type="struct_map_remove_value_of_key"><value name="KEY"><shadow type="text"><field name="TEXT"></field></shadow></value>
+</block>
+<block type="struct_container_size">
+</block>
+<block type="struct_smap_exist">
+</block>
+<block type="struct_smap_all_key">
+</block>
+</category>
+<category name="%{BKY_OP_STRUCT_IMAP}" categorystyle="struct_category">
+<label text="%{BKY_OP_STRUCT_IMAP}">
+</label>
+<block type="struct_imap_get_value_of_key"><value name="KEY"><shadow type="math_integer"><field name="NUM">0</field></shadow></value>
+</block>
+<block type="struct_imap_set_value_of_key"><value name="KEY"><shadow type="math_integer"><field name="NUM">0</field></shadow></value>
+</block>
+<block type="struct_imap_delete_value_of_key"><value name="KEY"><shadow type="math_integer"><field name="NUM">0</field></shadow></value>
+</block>
+<block type="struct_container_size">
+</block>
+<block type="struct_imap_exist">
+</block>
+<block type="struct_imap_all_key">
+</block>
+</category>
+<category name="%{BKY_OP_STRUCT_LIST}" categorystyle="struct_category">
+<label text="%{BKY_OP_STRUCT_LIST}">
+</label>
+<block type="struct_list_get_value_at_index"><value name="INDEX"><shadow type="math_integer"><field name="NUM">0</field></shadow></value>
+</block>
+<block type="struct_list_get_value_at_index"><value name="INDEX"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_number"><field name="NUM">1</field></block><block type="struct_container_size"></block></value><value name="B"><block type="math_integer"><field name="NUM">1</field></block></value></block></value>
+</block>
+<block type="struct_list_set_value_at_index">
+</block>
+<block type="struct_list_insert_value_at_index">
+</block>
+<block type="struct_list_delete_value_at_index"><value name="INDEX"><shadow type="math_integer"><field name="NUM">0</field></shadow></value>
+</block>
+<block type="struct_container_size">
+</block>
+</category>
+<category name="%{BKY_DEF_STRUCTS}" categorystyle="struct_category">
+<label text="%{BKY_DEF_STRUCTS}">
+</label>
+<block type="struct_field">
+</block>
+<block type="struct_base_type">
+</block>
+<block type="struct_structs">
+</block>
+<block type="struct_native">
+</block>
+<block type="struct_list">
+</block>
+<block type="struct_string_map">
+</block>
+<block type="struct_integer_map">
+</block>
+</category>
+</category>
+<sep>
+</sep>
+<category name="%{BKY_ASSETS}" categorystyle="assets_category" custom="ASSETS">
+</category>
+<sep>
+</sep>
+<category name="%{BKY_COLLECT}" categorystyle="collect_category" custom="COLLECT">
+</category>
+<sep>
+</sep>
+</xml>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <title>test</title>
+    <script src="Serializable.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        class A {
+            constructor() {
+                this.F = 'a';
+                // Object.assign(this, Serializable);
+            }
+            say() {
+                console.log('hello ~' + this.F);
+            }
+        }
+        Serializable(A);
+        let a = new A();
+        a.F = 'b';
+        a.say();
+        let json = JSON.stringify(a);
+        console.log(json);
+        let a1 = JSON.parse(json, Deserializer);
+        a1.say();
+        a1.F = 'c';
+        a1.say();
+        a.say();
+
+        class B extends A{
+            constructor(){
+                super();
+                this.G = 'g';
+            }
+            sayHi(){
+                console.log('hi~ '+this.G);
+            }
+        }
+        Serializable(B);
+        let b = new B();
+        let b1 = JSON.parse(JSON.stringify(b),Deserializer);
+        b1.G = 'gg';
+        console.log(b);
+        console.log(b1);
+        b.sayHi();
+        b1.sayHi();
+    </script>
+</body>
+
+</html>

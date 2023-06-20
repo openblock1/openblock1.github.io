@@ -1,0 +1,51 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    min-width: 1024px;
+    margin: 0;
+}
+
+.ns {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* #left {
+    height: 100%;
+    width: 23%;
+    min-width: 245px;
+    float: left;
+    padding-top:5px;
+    padding-left:5px;
+}
+
+#right {
+    height: 100%;
+    width: 74%;
+    min-width: 770px;
+    float: left;
+} */
+
+#openblock {
+    height: 100%;
+    width: 100%;
+}
+
+#blocklyWorkspace {
+    height: 100%;
+    width: 100%;
+}
+
+.blocklyactiveitem {
+    font-weight: bold;
+}
+.ivu-select-dropdown.ivu-auto-complete{
+    max-height: 500px;
+}
+#stateGraph,#stateEventGraph{
+    height:200px;
+    width: 200px;
+    padding: 5px;
+}

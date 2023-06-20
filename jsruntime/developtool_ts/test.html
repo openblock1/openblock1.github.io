@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+
+<body>
+    <div>
+    </div>
+    <script>
+        var func0 = eval("(function(){return 2*3;});");
+        var func = new Function("return 2*3");
+        var func1 = function () {
+            return 2 * 3;
+        };
+        var result = [0, 0, 0];
+        function test() {
+            var times = 1000000;
+            var t0 = window.performance.now();
+            for (var i = 0; i < times; i++) {
+                func0();
+            }
+            var t1 = window.performance.now();
+            result[0] += t1 - t0;
+            console.log("eval " + (t1 - t0) + "毫秒.");
+
+            var t0 = window.performance.now();
+            for (var i = 0; i < times; i++) {
+                func();
+            }
+            var t1 = window.performance.now();
+            result[1] += t1 - t0;
+            console.log("new func " + (t1 - t0) + "毫秒.");
+            var t0 = window.performance.now();
+            for (var i = 0; i < times; i++) {
+                func1();
+            }
+            var t1 = window.performance.now();
+            result[2] += t1 - t0;
+            console.log("func call " + (t1 - t0) + "毫秒.");
+        }
+        const group = 700;
+        for (var j = 1; j <= group; j++) {
+            const y = j;
+            setTimeout(() => {
+                test();
+                console.log("------------------");
+                if (y == group) {
+                    console.log(result);
+                }
+            }, 5 * j);
+        }
+    </script>
+</body>
+
+</html>

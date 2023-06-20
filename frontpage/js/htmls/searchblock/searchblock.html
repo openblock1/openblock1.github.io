@@ -1,0 +1,31 @@
+<div>
+    <modal v-model="show" @on-visible-change="onVisibleChange" class="searchblock" id="searchblock" ref="searchblock" :mask-closable="true" reset-drag-position="true" :mask="false" footer-hide draggable closable="true" transfer="true">
+        <span slot="header">{{OpenBlock.i("SEARCH")}}</span>
+        <div>
+            <Input @on-change="searchCallback" autofocus search clearable>
+            </Input>
+            <div>
+                <p v-for="blk in byID">
+                    <a @click="$root.gotoSrc(blk,searching)">{{blk.fullname}}</a>
+                </p>
+            </div>
+            <div style="max-height: 300px;overflow-y: auto;">
+                <table>
+                    <tbody>
+                        <tr v-for="block in blocks" @click="block.jumpCallback">
+                            <!-- <td>
+                            {{block.id}}
+                        </td>
+                        <td>
+                            {{block.type}}
+                        </td> -->
+                            <td>
+                                {{block.dest}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </modal>
+</div>

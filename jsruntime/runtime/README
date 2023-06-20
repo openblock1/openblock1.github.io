@@ -1,0 +1,8 @@
+由于js语法的灵活性，js运行时没有开发工具。
+js运行时支持DEBUG，同时用于在IDE中为其他运行时提供DEBUG信息。
+
+实现OBVM、OBDEBUGGER、OBScript
+Script用于加载字节码；
+VM用于执行Script
+Debugger用于跟IDE通信进行DEBUG
+Script同时用于在IDE上序列化和反序列化数据结构和检视变量

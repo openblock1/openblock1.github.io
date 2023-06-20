@@ -1,0 +1,992 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+    <category name="系统">
+        <category name="输入">
+            <block nativeCall="sys_io_prompt">
+                <value name="question">
+                    <shadow type="text">
+                        <field name="TEXT">提问</field>
+                    </shadow>
+                </value>
+                <value name="title">
+                    <shadow type="text">
+                        <field name="TEXT">回答</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="窗口">
+            <block nativeCall="sys_window_set_width">
+                <value name="width">
+                    <shadow type="math_number">
+                        <field name="NUM">500</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="sys_window_set_height">
+                <value name="height">
+                    <shadow type="math_number">
+                        <field name="NUM">500</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="sys_window_get_width">
+            </block>
+            <block nativeCall="sys_window_get_height">
+            </block>
+        </category>
+        <category name="时间">
+            <block nativeCall="sys_time_timestamp">
+            </block>
+            <block nativeCall="sys_time_new_date">
+            </block>
+            <block nativeCall="sys_time_new_date_by_timestamp">
+            </block>
+            <block nativeCall="sys_time_date_getDate">
+            </block>
+            <block nativeCall="sys_time_date_getDay">
+            </block>
+            <block nativeCall="sys_time_date_getFullYear">
+            </block>
+            <block nativeCall="sys_time_date_getHours">
+            </block>
+            <block nativeCall="sys_time_date_getMilliseconds">
+            </block>
+            <block nativeCall="sys_time_date_getMinutes">
+            </block>
+            <block nativeCall="sys_time_date_getMonth">
+            </block>
+            <block nativeCall="sys_time_date_getSeconds">
+            </block>
+            <block nativeCall="sys_time_date_getTime">
+            </block>
+            <block nativeCall="sys_time_date_setDate">
+            </block>
+            <block nativeCall="sys_time_date_setFullYear">
+            </block>
+            <block nativeCall="sys_time_date_setHours">
+            </block>
+            <block nativeCall="sys_time_date_setMilliseconds">
+            </block>
+            <block nativeCall="sys_time_date_setMinutes">
+            </block>
+            <block nativeCall="sys_time_date_setMonth">
+            </block>
+            <block nativeCall="sys_time_date_setSeconds">
+            </block>
+            <block nativeCall="sys_time_date_setTime">
+            </block>
+        </category>
+        <category name="文件(web)">
+            <block nativeCall="sys_file_save_struct">
+                <value name="filename">
+                    <shadow type="text">
+                        <field name="TEXT">file.bin</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="sys_file_save_text">
+                <value name="filename">
+                    <shadow type="text">
+                        <field name="TEXT">file.txt</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="sys_file_select_open_as_string">
+                <value name="extensions">
+                    <shadow type="text">
+                        <field name="TEXT">.txt</field>
+                    </shadow>
+                </value>
+                <value name="title">
+                    <shadow type="text">
+                        <field name="TEXT">打开文件</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="sys_file_select_open_as_struct_data" >
+                <value name="extensions">
+                    <shadow type="text">
+                        <field name="TEXT">.bin</field>
+                    </shadow>
+                </value>
+                <value name="title">
+                    <shadow type="text">
+                        <field name="TEXT">打开文件</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="sys_file_select_open_as_bin">
+                <value name="extensions">
+                    <shadow type="text">
+                        <field name="TEXT">.jpg,.png</field>
+                    </shadow>
+                </value>
+                <value name="title">
+                    <shadow type="text">
+                        <field name="TEXT">打开文件</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+    </category>
+    <category name="画板">
+        <category name="数据">
+            <block nativeCall="Vector2_x" />
+            <block nativeCall="Vector2_y" />
+            <block nativeCall="Canvas2d_doublePropertyOfCanvas">
+                <provider arg="propertyName" type="dropdown" property="Blockly.Msg['Canvas2d_doublePropertyOfCanvas_options']" />
+            </block>
+            <block nativeCall="Canvas2d_height" />
+            <block nativeCall="Canvas2d_width" />
+        </category>
+        <category name="图片">
+            <block nativeCall="Canvas2d_drawImage2">
+                <provider arg="imageFileName" type="file" mediaType="image" />
+                <value name="DestX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_drawImage4">
+                <provider arg="imageFileName" type="file" mediaType="image" />
+                <value name="DestX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestWidth">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="DestHeight">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_imageObjectWidth"></block>
+            <block nativeCall="Canvas2d_imageObjectHeight"></block>
+            <block nativeCall="Canvas2d_drawImageObject">
+                <value name="SourceX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="SourceY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="SourceWidth">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="SourceHeight">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="DestX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestWidth">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="DestHeight">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_drawImage">
+                <provider arg="imageFileName" type="file" mediaType="image" />
+                <value name="SourceX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="SourceY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="SourceWidth">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="SourceHeight">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="DestX">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestY">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="DestWidth">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="DestHeight">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+            </block>
+    
+            <block nativeCall="Canvas2d_ImageWidth">
+                <provider arg="imageFileName" type="file" mediaType="image" />
+            </block>
+            <block nativeCall="Canvas2d_ImageHeight">
+                <provider arg="imageFileName" type="file" mediaType="image" />
+            </block>
+            <block nativeCall="Canvas2d_loadImage">
+                <value name="messageTitle">
+                    <shadow type="text">
+                        <field name="TEXT">加载图片完成</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_fileName"></block>
+            <block nativeCall="Canvas2d_fileContent"></block>
+        </category>
+        <category name="文字">
+            <block nativeCall="Canvas2d_setFont">
+                <value name="font">
+                    <shadow type="text">
+                        <field name="TEXT">10px sans-serif</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_getFont" />
+            <block nativeCall="Canvas2d_fillText">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="text">
+                    <shadow type="text">
+                        <field name="TEXT">内容</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_strokeText">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="text">
+                    <shadow type="text">
+                        <field name="TEXT">内容</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_setTextAlign">
+                <provider arg="align" type="dropdown" property="Blockly.Msg['Canvas2d_setTextAlign_options']" />
+            </block>
+            <block nativeCall="Canvas2d_getTextAlign" />
+            <block nativeCall="Canvas2d_setTextBaseline">
+                <provider arg="align" type="dropdown" property="Blockly.Msg['Canvas2d_setTextBaseline_options']" />
+            </block>
+            <block nativeCall="Canvas2d_getTextBaseline" />
+            <block nativeCall="Canvas2d_setLineCap">
+                <provider arg="lineCap" type="dropdown" property="Blockly.Msg['Canvas2d_setLineCap_options']" />
+            </block>
+            <block nativeCall="Canvas2d_textWidth"></block>
+        </category>
+        <category name="形状">
+            <block nativeCall="Canvas2d_fillRect">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="width">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="height">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_clearRect">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="width">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="height">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_strokeRect">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="width">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="height">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+        <category name="路径">
+            <block nativeCall="Canvas2d_beginPath" />
+            <block nativeCall="Canvas2d_closePath" />
+            <block nativeCall="Canvas2d_fill" />
+            <block nativeCall="Canvas2d_stroke" />
+            <block nativeCall="Canvas2d_Clip" />
+            <block nativeCall="Canvas2d_arc">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="radius">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="startAngle">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="endAngle">
+                    <shadow type="math_arithmetic">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                            <shadow type="math_number">
+                                <field name="NUM">2</field>
+                            </shadow>
+                        </value>
+                        <value name="B">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                            <shadow type="math_constant">
+                                <field name="CONSTANT">PI</field>
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+                <value name="anticlockwise">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_arcTo">
+                <value name="x1">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+                <value name="y1">
+                    <shadow type="math_number">
+                        <field name="NUM">100</field>
+                    </shadow>
+                </value>
+                <value name="x2">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y2">
+                    <shadow type="math_number">
+                        <field name="NUM">20</field>
+                    </shadow>
+                </value>
+                <value name="radius">
+                    <shadow type="math_number">
+                        <field name="NUM">30</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_bezierCurveTo">
+                <value name="cp1x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="cp1y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="cp2x">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+                <value name="cp2y">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_quadraticCurveTo">
+                <value name="cpx">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="cpy">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_moveTo">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_lineTo">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">150</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_ellipse">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="radiusX">
+                    <shadow type="math_number">
+                        <field name="NUM">30</field>
+                    </shadow>
+                </value>
+                <value name="radiusY">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="rotation">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="startAngle">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="endAngle">
+                    <shadow type="math_arithmetic">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                            <shadow type="math_number">
+                                <field name="NUM">2</field>
+                            </shadow>
+                        </value>
+                        <value name="B">
+                            <shadow type="math_constant">
+                                <field name="CONSTANT">PI</field>
+                            </shadow>
+                        </value>
+                    </shadow>
+                </value>
+                <value name="anticlockwise">
+                    <shadow type="logic_boolean">
+                        <field name="BOOL">FALSE</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_rect">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="width">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="height">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_isPointInPath"></block>
+        </category>
+        <category name="颜色">
+            <block nativeCall="Canvas2d_setFillStyleColor">
+                <value name="colour">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#000000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_setStrokeStyleColor">
+                <value name="colour">
+                    <shadow type="colour_picker">
+                        <field name="COLOUR">#000000</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_setGlobalAlpha">
+                <value name="value">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_getGlobalAlpha" />
+        </category>
+        <category name="线条">
+            <block nativeCall="Canvas2d_setLineWidth">
+                <value name="width">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_getLineWidth" />
+            <block nativeCall="Canvas2d_setLineDash"></block>
+            <block nativeCall="Canvas2d_getLineDash" />
+            <block nativeCall="Canvas2d_setLineDashOffset"></block>
+            <block nativeCall="Canvas2d_getLineDashOffset" />
+            <block nativeCall="Canvas2d_getLineCap"></block>
+            <block nativeCall="Canvas2d_isPointInStroke"></block>
+        </category>
+        <category name="变换">
+            <block nativeCall="Canvas2d_Save" />
+            <block nativeCall="Canvas2d_Restore" />
+            <block nativeCall="Canvas2d_SetTransform">
+                <value name="HorizontalScaling">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="VerticalSkewing">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="HorizontalSkewing">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VerticalScaling">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="HorizontalTranslation">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VerticalTranslation">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_Transform">
+                <value name="HorizontalScaling">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="VerticalSkewing">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="HorizontalSkewing">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VerticalScaling">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="HorizontalTranslation">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="VerticalTranslation">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_Translate">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_rotate">
+                <value name="radian">
+                    <shadow type="math_constant">
+                        <field name="CONSTANT">PI</field>
+                    </shadow>
+                </value>
+            </block>
+            <block nativeCall="Canvas2d_scale">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+    </category>
+    <category name="网络">
+        <block nativeCall="Network_join" />
+        <block nativeCall="Network_leave" />
+        <block nativeCall="Network_is_joined" />
+        <block nativeCall="Network_set_enable">
+            <value name="enabled">
+                <shadow type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="Network_send_message">
+            <value name="title">
+                <shadow type="text">
+                    <field name="TEXT">消息主题</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="Network_is_network_message" />
+        <block nativeCall="Network_is_enabled" />
+    </category>
+    <category name="基础音频">
+        <block nativeCall="WebAudio_playAudio">
+            <provider arg="name" type="file" mediaType="sound" />
+        </block>
+        <block nativeCall="WebAudio_createSimpleAudio">
+            <provider arg="name" type="file" mediaType="sound" />
+        </block>
+        <block nativeCall="WebAudio_playSimpleAudio"></block>
+        <block nativeCall="WebAudio_setGlobalVolume">
+            <value name="volume">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_getGlobalVolume"></block>
+        <block nativeCall="WebAudio_setGlobalPan">
+            <value name="pan">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_getGlobalPan"></block>
+        <block nativeCall="WebAudio_setVolume">
+            <value name="volume">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_getVolume"></block>
+        <block nativeCall="WebAudio_setPan">
+            <value name="pan">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_getPan"></block>
+        <block nativeCall="WebAudio_setLoop">
+            <value name="loop">
+                <shadow type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_isLoop"></block>
+        <block nativeCall="WebAudio_suspend"></block>
+        <block nativeCall="WebAudio_resume"></block>
+        <block nativeCall="WebAudio_onended"></block>
+    </category>
+    <category name="高级音频(web)">
+        <label text="全局"></label>
+        <block nativeCall="WebAudio_getCurrentTime"></block>
+        <block nativeCall="WebAudio_globalNode"></block>
+        <block nativeCall="WebAudio_reset"></block>
+        <label text="通用"></label>
+        <block nativeCall="WebAudio_connectAudioNode"></block>
+        <block nativeCall="WebAudio_disconnectAllAudioNode"></block>
+        <block nativeCall="WebAudio_disconnectAudioNode"></block>
+        <block nativeCall="WebAudio_AudioParam_getDefaultValue"></block>
+        <block nativeCall="WebAudio_AudioParam_getMaxValue"></block>
+        <block nativeCall="WebAudio_AudioParam_getMinValue"></block>
+        <block nativeCall="WebAudio_AudioParam_getValue"></block>
+        <block nativeCall="WebAudio_AudioParam_setValue"></block>
+        <block nativeCall="WebAudio_AudioParam_cancelAndHoldAtTime"></block>
+        <block nativeCall="WebAudio_AudioParam_cancelScheduledValues"></block>
+        <block nativeCall="WebAudio_AudioParam_setValueCurveAtTime"></block>
+        <block nativeCall="WebAudio_AudioParam_setTargetAtTime"></block>
+        <block nativeCall="WebAudio_AudioParam_exponentialRampToValueAtTime"></block>
+        <block nativeCall="WebAudio_AudioParam_linearRampToValueAtTime"></block>
+        <block nativeCall="WebAudio_startScheduledSource"></block>
+        <block nativeCall="WebAudio_stopScheduledSource"></block>
+        <block nativeCall="WebAudio_ScheduledSourceSetOnendMsgTitle"></block>
+        <label text="定义音频源"></label>
+        <block nativeCall="WebAudio_createAudioBuffer">
+            <value name="numOfChannels">
+                <shadow type="math_integer">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="length">
+                <shadow type="math_integer">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="sampleRate">
+                <shadow type="math_integer">
+                    <field name="NUM">8000</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_AudioBuffer_sampleRate"></block>
+        <block nativeCall="WebAudio_AudioBuffer_length"></block>
+        <block nativeCall="WebAudio_AudioBuffer_duration"></block>
+        <block nativeCall="WebAudio_AudioBuffer_numberOfChannels"></block>
+        <block nativeCall="WebAudio_AudioBuffer_getChannelData">
+            <value name="channelNumber">
+                <shadow type="math_integer">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_AudioBuffer_copyFromChannel">
+            <value name="channelNumber">
+                <shadow type="math_integer">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="startInChannel">
+                <shadow type="math_integer">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_AudioBuffer_copyToChannel">
+            <value name="channelNumber">
+                <shadow type="math_integer">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="startInChannel">
+                <shadow type="math_integer">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_getAudioBuffer"></block>
+        <block nativeCall="WebAudio_loadAudioFile">
+            <value name="messageTitle">
+                <shadow type="text">
+                    <field name="TEXT">加载音频完成</field>
+                </shadow>
+            </value>
+        </block>
+        <block nativeCall="WebAudio_createBufferSource"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_getBuffer"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_detune"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_playbackRate"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_isLoop"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_getLoopStart"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_getLoopEnd"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_setBuffer"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_setLoop"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_setLoopStart"></block>
+        <block nativeCall="WebAudio_AudioBufferSourceNode_setLoopEnd"></block>
+        <block nativeCall="WebAudio_createOscillator"></block>
+        <block nativeCall="WebAudio_OscillatorNode_frequency"></block>
+        <block nativeCall="WebAudio_OscillatorNode_detune"></block>
+        <block nativeCall="WebAudio_OscillatorNode_getType"></block>
+        <block nativeCall="WebAudio_OscillatorNode_setType"></block>
+        <block nativeCall="WebAudio_openMic"></block>
+        <label text="定义音效"></label>
+        <block nativeCall="WebAudio_createBiquadFilter"></block>
+        <block nativeCall="WebAudio_BiquadFilterNode_frequency"></block>
+        <block nativeCall="WebAudio_BiquadFilterNode_detune"></block>
+        <block nativeCall="WebAudio_BiquadFilterNode_Q"></block>
+        <block nativeCall="WebAudio_BiquadFilterNode_gain"></block>
+        <block nativeCall="WebAudio_BiquadFilterNode_getType"></block>
+        <block nativeCall="WebAudio_BiquadFilterNode_setType"></block>
+        <block nativeCall="WebAudio_createConvolver"></block>
+        <block nativeCall="WebAudio_ConvolverNode_getBuffer"></block>
+        <block nativeCall="WebAudio_ConvolverNode_getNormalize"></block>
+        <block nativeCall="WebAudio_ConvolverNode_setBuffer"></block>
+        <block nativeCall="WebAudio_ConvolverNode_setNormalize"></block>
+        <block nativeCall="WebAudio_createGain"></block>
+        <block nativeCall="WebAudio_GainNode_gain"></block>
+        <block nativeCall="WebAudio_createStereoPanner"></block>
+        <block nativeCall="WebAudio_StereoPannerNode_pan"></block>
+        <block nativeCall="WebAudio_createDynamicsCompressor"></block>
+        <block nativeCall="WebAudio_DynamicsCompressorNode_threshold"></block>
+        <block nativeCall="WebAudio_DynamicsCompressorNode_knee"></block>
+        <block nativeCall="WebAudio_DynamicsCompressorNode_ratio"></block>
+        <block nativeCall="WebAudio_DynamicsCompressorNode_reduction"></block>
+        <block nativeCall="WebAudio_DynamicsCompressorNode_attack"></block>
+        <block nativeCall="WebAudio_DynamicsCompressorNode_release"></block>
+        <block nativeCall="WebAudio_createDelay"></block>
+        <block nativeCall="WebAudio_DelayNode_delayTime"></block>
+        <block nativeCall="WebAudio_createWaveShaper"></block>
+        <block nativeCall="WebAudio_WaveShaperNode_getOversample"></block>
+        <block nativeCall="WebAudio_WaveShaperNode_setOversample"></block>
+        <block nativeCall="WebAudio_WaveShaperNode_getCurve"></block>
+        <block nativeCall="WebAudio_WaveShaperNode_setCurve"></block>
+        <block nativeCall="WebAudio_fileName"></block>
+        <block nativeCall="WebAudio_fileContent"></block>
+    </category>
+
+    <category name="缓冲区操作">
+        <block nativeCall="Float32ArrayToArray"></block>
+        <block nativeCall="ArrayToFloat32Array"></block>
+    </category>
+</xml>

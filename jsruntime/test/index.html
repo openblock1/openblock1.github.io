@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>模拟器</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .log {
+            pointer-events: none;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            mix-blend-mode: difference;
+            color: #fff;
+        }
+        
+        #stage {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./normalize.css">
+</head>
+
+<body style="background-color: white;text-align: left;">
+    <canvas id="stage" style="background-color: white;"></canvas>
+    <div class="noselect log" id="logDiv"></div>
+    <div style="display: none;">
+        <label>选择逻辑文件</label>
+        <input id="input_script" type="file" accept=".xe" /><br />
+        <input id="input_start_fsm" type="text" disabled value="Start.Main" />
+        <script type="text/javascript">
+            function changeFSM(b) {
+                let fsmNameInput = document.getElementById("input_start_fsm");
+                fsmNameInput.value = b.value;
+            }
+        </script>
+        <input type="button" onclick="changeFSM({value:''})" value="X" />
+        <input type="button" onclick="changeFSM(this)" value="新建库.游戏逻辑" />
+        <input type="button" onclick="changeFSM(this)" value="test.Main" />
+        <input type="button" onclick="changeFSM(this)" value="Start.Main" />
+        <br />
+        <button id="button_run">Run</button><br />
+    </div>
+    <script src="js/fileOD.js"></script>
+    <script src="../../frontpage/core/3rd/axios.min.js"></script>
+    <script src="../../frontpage/js/asyncprompt.js"></script>
+    <!-- <script type="module" src="../runtime/script.js"></script>
+    <script type="module" src="../runtime/vm.js"></script>
+    <script type="module" src="./js/canvas.js"></script> -->
+    <script type="module" src="./js/jsruntime.ext.mjs"></script>
+    <script type="module" src="./js/index.mjs"></script>
+    <script type="text/javascript">
+    </script>
+    <!-- <script src="../runtime/index.js"></script> -->
+</body>
+
+</html>

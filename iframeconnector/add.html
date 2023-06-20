@@ -1,0 +1,23 @@
+<span>
+    <tooltip
+        content="独立窗口运行" :delay="800">
+        <a class="headerBtn">
+            <icon type="ios-browsers" @click="runInStandaloneWindow" size="20"
+                style="cursor:pointer;vertical-align: -2px;"></icon>
+        </a>
+    </tooltip>
+    <tooltip
+        content="新预览窗口" :delay="800">
+        <a class="headerBtn">
+            <icon type="ios-apps" @click="newWindow" size="20"
+                style="cursor:pointer;vertical-align: -2px;"></icon>
+        </a>
+    </tooltip>
+    <!--<tooltip
+        content="调试" :delay="800">
+        <a class="headerBtn">
+            <icon type="md-bug" @click="newDebugWindow" size="20"
+                style="cursor:pointer;vertical-align: -2px;"></icon>
+        </a>
+    </tooltip>-->
+</span>

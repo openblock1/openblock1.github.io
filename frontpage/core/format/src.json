@@ -1,0 +1,64 @@
+{
+    "xs": {
+        "name": "代码库名称",
+        "formatVersion": 1,
+        "time": "2019-10-10 10:10:10",
+        "version": "0.0.1",
+        "author": "作者",
+        "depends": [
+            "依赖库名称1",
+            "依赖库名称2"
+        ],
+        "env": "unity",
+        "type": "src",
+        "comment": "注释",
+        "fsms": [
+            {
+                "name": "名称",
+                "variables": [
+                    {
+                        "name": "name1",
+                        "type": "b"
+                    },
+                    {
+                        "name": "name2",
+                        "type": "s"
+                    },
+                    {
+                        "name": "name3",
+                        "type": "i"
+                    }
+                ],
+                "comment": "注释",
+                "startState": 0,
+                "states": [
+                    {
+                        "name": "逻辑名称1",
+                        "comment": "注释",
+                        "startState": "状态1",
+                        "state": [
+                            {
+                                "name": "状态1",
+                                "code": "<xml></xml>"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "structs": [
+            {
+                "comment": "注释",
+                "name": "逻辑2",
+                "code": "<xml></xml>"
+            }
+        ],
+        "functions": [
+            {
+                "comment": "注释",
+                "name": "函数名称",
+                "code": "<xml></xml>"
+            }
+        ]
+    }
+}

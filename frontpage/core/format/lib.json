@@ -1,0 +1,61 @@
+{
+    "xl": {
+        "name": "代码库名称",
+        "type": "lib",
+        "formatVersion": 1,
+        "time": "2019-10-10 10:10:10",
+        "version": "0.0.1",
+        "author": "作者",
+        "depends": [
+            "依赖库名称1",
+            "依赖库名称2"
+        ],
+        "env": "unity",
+        "comment": "注释",
+        "fsms": [
+            {
+                "name": "名称",
+                "body": "functionbody",
+                "comment": "注释",
+                "variables": [
+                    {
+                        "name": "name1",
+                        "type": "b"
+                    },
+                    {
+                        "name": "name2",
+                        "type": "s"
+                    },
+                    {
+                        "name": "name3",
+                        "type": "i"
+                    }
+                ]
+            }
+        ],
+        "structs": [
+            {
+                "comment": "注释",
+                "name": "结构名称"
+            }
+        ],
+        "functions": [
+            {
+                "comment": "注释",
+                "name": "函数名称",
+                "body": "functionbody"
+            }
+        ]
+    }
+}
+// {
+//     "functionbody": {
+//         "strings": [
+//             "string"
+//         ],
+//         "numbers": [
+//             "number"
+//         ],
+//         "bin": "BASE64-bin"
+//     }
+// }

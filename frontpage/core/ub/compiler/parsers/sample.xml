@@ -1,0 +1,121 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <block type="on_event" id="fZZ9-#~/ft@3G{:NW~O`" x="66" y="44">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" eventname="Start" style="event_blocks"></mutation>
+        <next>
+            <block type="text_print" id="9mj#H4lr8yCAg,BRK#BN">
+                <value name="TEXT">
+                    <shadow type="text" id="*~/dB+[l=CLx(sxjs|il">
+                        <field name="TEXT"></field>
+                    </shadow>
+                    <block type="math_arithmetic" id="=geiV}lc/F$i/Rvz:EbJ">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                            <shadow type="math_number" id="G9Oli%Y[X=.P[cweV4!N">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="B">
+                            <shadow type="math_number" id="(4J?p;#LsVGxP1PdeK,1">
+                                <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_number" id="G*^IZt],u)k6j-GN8kyn">
+                                <field name="NUM">5</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+            </block>
+        </next>
+    </block>
+    <block type="procedures_defnoreturn" id="I_;V@a/VRTTgf%tOocRG" x="75" y="178">
+        <field name="NAME">做点什么</field>
+        <comment pinned="false" h="80" w="160">描述该功能...</comment>
+        <statement name="STACK">
+            <block type="text_print" id="ZHMqWY4k9AbQ?7OEolM0">
+                <value name="TEXT">
+                    <shadow type="text" id="LU#+8O*wU@+{YY6i(NR{">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+        </statement>
+    </block>
+    <block type="on_message" id="-6y[w7Y+-LPL_r]:-f`h" x="79" y="302">
+        <field name="VALUE">aaa</field>
+        <next>
+            <block type="text_print" id="rB2L^SY9;JK;agV_k=[%">
+                <value name="TEXT">
+                    <shadow type="text" id="j:TpCB`!B{xVF]X/}k=S">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+        </next>
+    </block>
+</xml>
+
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <block type="on_event" id="fZZ9-#~/ft@3G{:NW~O`" x="16" y="10">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" eventname="Start" style="event_blocks"></mutation>
+        <next>
+            <block type="text_print" id="9mj#H4lr8yCAg,BRK#BN">
+                <value name="TEXT">
+                    <shadow type="text" id="*~/dB+[l=CLx(sxjs|il">
+                        <field name="TEXT"></field>
+                    </shadow>
+                    <block type="math_arithmetic" id="=geiV}lc/F$i/Rvz:EbJ">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                            <shadow type="math_number" id="G9Oli%Y[X=.P[cweV4!N">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="B">
+                            <shadow type="math_number" id="(4J?p;#LsVGxP1PdeK,1">
+                                <field name="NUM">1</field>
+                            </shadow>
+                            <block type="math_number" id="G*^IZt],u)k6j-GN8kyn">
+                                <field name="NUM">5</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+            </block>
+        </next>
+    </block>
+</xml>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+    <block type="event_whenflagclicked" id="{WAGxCo7L=.Nbn1=w)[8" x="49" y="29">
+        <next>
+            <block type="control_forever" id="f=]TrB:..o8{1fVSBWVh">
+                <statement name="SUBSTACK">
+                    <block type="control_wait" id=";m_!`!tV67TG#F}V{8mL">
+                        <value name="DURATION">
+                            <shadow type="math_number" id="vp^~T`j6l].r86Dxtzed">
+                                <field name="NUM">0.1</field>
+                            </shadow>
+                        </value>
+                        <next>
+                            <block type="looks_nextcostume" id=";AJ+p#u)m5c9;@GwS^Ac"></block>
+                        </next>
+                    </block>
+                </statement>
+            </block>
+        </next>
+    </block>
+    <block type="event_whenkeypressed" id="d]k?)r5UbdBZ].pe]vz_" x="13" y="63">
+        <value name="KEY_OPTION">
+            <shadow type="event_keyoptions" id="Vm8v^cC9ful{mbc#2PGW">
+                <field name="KEY_OPTION">ANY</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="event_whenthisspriteclicked" id="wBEDT::;13WC])+okk}K" x="13" y="138"></block>
+    <block type="event_whenbroadcastreceived" id="[t%98+V6%@{BOlTk]^#^" x="13" y="238">
+        <value name="BROADCAST_OPTION">
+            <shadow type="text" id="v8C6xl)#_gr-9dn;]Ou2">
+                <field name="TEXT">message</field>
+            </shadow>
+        </value>
+    </block>
+</xml>

@@ -1,0 +1,176 @@
+<div>
+    <div>
+        <div solt="title" style="height:33px;font-size:22px;">
+            逻辑
+            <tooltip content="新建模块" :delay="1000" theme="light">
+                <i-button size="small" style="margin-left:15px;" @click="$root.newFile">
+                    <icon type="md-add"></icon>
+                </i-button>
+            </tooltip>
+            <tooltip content="导入模块" :delay="1000" theme="light">
+                <i-button size="small" style="margin-left:15px;" @click="$root.loadFiles">
+                    <icon type="ios-cloud-upload-outline"></icon>
+                </i-button>
+            </tooltip>
+        </div>
+        <collapse>
+            <panel class="ns" v-for="f in $root.srcs">
+                <span>
+                    {{f.name}}
+                    <span style="float:right;margin-right:20px;">
+                        <tooltip content="导出模块源码" :delay="1000" theme="light">
+                            <icon type="ios-cloud-download-outline" @click.stop="$root.saveSrcFile(f)"></icon>
+                        </tooltip>
+
+                        <tooltip content="模块属性" :delay="1000" theme="light">
+                            <icon size="20" type="ios-create-outline" @click.stop="$root.editSrc(f)"></icon>
+                        </tooltip>
+                        <tooltip content="卸载模块" :delay="1000" theme="light">
+                            <icon size="20" type="ios-trash-outline" @click.stop="$root.unloadFile(f)"></icon>
+                        </tooltip>
+                    </span>
+                </span>
+                <div slot="content" style="display:table">
+                    <div>
+                        <card class="logicCard" style="width:200px;" v-for="struct in f.structs">
+                            <a @click="$root.selectStruct(f,struct)">
+                                <icon type="logo-codepen"></icon>
+                                {{struct.name}}
+                            </a>
+                            <span style="float:right;margin-right:10px;">
+                                <tooltip content="重命名" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-create-outline" @click="$root.renameStruct(f,struct)">
+                                    </icon>
+                                </tooltip>
+                                <tooltip content="删除" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-trash-outline" @click="$root.removeStruct(f,struct)">
+                                    </icon>
+                                </tooltip>
+                            </span>
+                        </card>
+                        <card class="logicCard" style="width:200px;">
+                            <a @click="$root.addStruct(f)">
+                                <icon type="ios-add-circle-outline"></icon>
+                                新建数据结构组
+                            </a>
+                        </card>
+                    </div>
+                    <div>
+
+                        <card class="logicCard" style="width:200px;" v-for="func in f.functions">
+                            <a @click="$root.selectFunction(f,func)">
+                                <icon type="md-calculator"></icon>
+                                {{func.name}}
+                            </a>
+                            <span style="float:right;margin-right:10px;">
+                                <tooltip content="重命名" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-create-outline" @click="$root.renameFunction(f,func)">
+                                    </icon>
+                                </tooltip>
+                                <tooltip content="删除" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-trash-outline" @click="$root.removeFunction(f,func)">
+                                    </icon>
+                                </tooltip>
+                            </span>
+                        </card>
+                        <card class="logicCard" style="width:200px;">
+                            <a @click="$root.addFunction(f)">
+                                <icon type="ios-add-circle-outline"></icon>
+                                新建函数组
+                            </a>
+                        </card>
+                    </div>
+                    <div>
+                        <card class="logicCard" v-for="fsm in f.fsms">
+                            <p slot="title" class="ns">
+                                <icon type="md-analytics"></icon>
+                                {{fsm.name}}
+                            </p>
+                            <span slot="extra">
+                                <tooltip content="状态机构建关系" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-color-filter-outline" @click="showFSMCreateTree(f.name,fsm.name)"></icon>
+                                </tooltip>
+                                <tooltip content="状态转换概览" :delay="1000" theme="light">
+                                    <icon size="20" type="md-git-compare" @click="showStateTransition(f,fsm)"></icon>
+                                </tooltip>
+                                <tooltip content="重命名" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-create-outline" @click="$root.renameFSM(f,fsm)"></icon>
+                                </tooltip>
+                                <tooltip content="删除" :delay="1000" theme="light">
+                                    <icon size="20" type="ios-trash-outline" @click="$root.removeFSM(f,fsm)"></icon>
+                                </tooltip>
+                            </span>
+                            <div class="statelist">
+                                <div v-for="(state,index) in fsm.states" style="width:100%;font-size: 16px;">
+                                    <a @click="$root.selectState(f,fsm,state)">
+                                        <icon type="ios-fastforward"></icon>
+                                        {{state.name}}
+                                    </a>
+                                    <span style="float:right;">
+                                        <tooltip v-if="index!=0" content="设定为初始状态" :delay="1000" theme="light">
+                                            <icon type="ios-flag-outline" @click="$root.setStartState(fsm,state)">
+                                            </icon>
+                                        </tooltip>
+                                        <tooltip v-if="index==0" content="初始状态" :delay="1000" theme="light">
+                                            <icon type="ios-flag"></icon>
+                                        </tooltip>
+                                        <tooltip content="重命名" :delay="1000" theme="light">
+                                            <icon size="20" type="ios-create-outline"
+                                                @click="$root.renameState(fsm,state)">
+                                            </icon>
+                                        </tooltip>
+                                        <tooltip content="删除" :delay="1000" theme="light">
+                                            <icon size="20" type="ios-trash-outline"
+                                                @click="$root.removeFSMState(fsm,state)">
+                                            </icon>
+                                        </tooltip>
+                                    </span>
+                                </div>
+                                <div style="width:100%;font-size: 16px;">
+                                    <a @click="$root.addFSMState(fsm)">
+                                        <icon type="ios-add-circle-outline"></icon>
+                                        新建状态
+                                    </a>
+                                </div>
+                            </div>
+                        </card>
+                        <card class="logicCard">
+                            <a slot="title" class="ns" @click="$root.addFSM(f)">
+                                <icon type="md-analytics"></icon>
+                                新建状态机类型
+                            </a>
+                            <div class="statelist" @click="$root.addFSM(f)">
+                                <icon type="ios-add-circle-outline" size="80" style="margin: auto;display: block;color:#aaa"></icon>
+                            </div>
+                        </card>
+                    </div>
+                </div>
+
+            </panel>
+        </collapse>
+    </div>
+    <modal :value="$root.showSrcEditWindow" :mask="false" title="模块属性">
+        <div style="color:red;">
+            {{$root.editingSrc.warning}}
+        </div>
+        <div>
+            <span>名称:</span>
+            <i-input v-model="$root.editingSrc.name" placeholder="输入名称" clearable style="width: 200px" />
+        </div>
+        <div style="margin-top:5px;">
+            <span>模块依赖:</span>
+            <transfer filterable @on-change="$root.changeSrcDepends" :data="$root.allLibs($root.editingSrc.src.name)" :target-keys="$root.editingSrc.depends" filterable="true" :titles="[OpenBlock.i('可用模块'),OpenBlock.i('依赖模块')]"></transfer>
+        </div>
+
+        <div slot="footer" style="text-align:end;">
+            <i-button type="default" size="large" @click="$root.cleanEditingSrc">取消</i-button>
+            <i-button type="primary" size="large" @click="$root.submitEditingSrc">确定</i-button>
+        </div>
+    </modal>
+    <modal :value="chartWindowTitle" :title="chartWindowTitle" width="700" :closable="false" :mask="false" :mask-closable="false" :draggable="true">
+        <div ref="chart" class="StateTransitionChart"></div>
+        <div slot="footer" style="text-align:end;">
+            <i-button type="primary" size="small" @click="clear">关闭</i-button>
+        </div>
+    </modal>
+</div>

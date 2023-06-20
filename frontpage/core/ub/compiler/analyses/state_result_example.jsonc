@@ -1,0 +1,77 @@
+//OpenBlock.Compiler.compiled[libname].analysed.StateTransition
+{
+    "StateTransition": {
+        "name": "test",
+        "fsm": {
+            "Main": {
+                "name": "Main",
+                "states": {
+                    "Start": {
+                        "name": "Start",
+                        "function": [],
+                        "event": [
+                            {
+                                "name": "Start",
+                                "targetStates": [
+                                    {
+                                        "targetStateName": "Pong",
+                                        "blockId": "R[nd.W8=~tmGh_qxq[M+",
+                                        "$__type": "ChangeState"
+                                    }
+                                ],
+                                "popBack":false,
+                                "targetFunc": [],
+                                "$__type": "StateAnalysesResultEventHandler"
+                            }
+                        ],
+                        "message": [],
+                        "popBack":false,
+                        "$__type": "StateAnalysesResultState"
+                    },
+                    "Pong": {
+                        "name": "Pong",
+                        "function": [],
+                        "event": [],
+                        "message": [
+                            {
+                                "name": "ping:Integer",
+                                "targetStates": [],
+                                "targetFunc": [],
+                                "$__type": "StateAnalysesResultMessageHandler"
+                            }
+                        ],
+                        "$__type": "StateAnalysesResultState"
+                    }
+                },
+                "$__type": "StateAnalysesResultFSM"
+            },
+            "sub": {
+                "name": "sub",
+                "states": {
+                    "状态": {
+                        "name": "状态",
+                        "function": [],
+                        "event": [],
+                        "message": [
+                            {
+                                "name": "Start1: ",
+                                "targetStates": [],
+                                "targetFunc": [],
+                                "$__type": "StateAnalysesResultMessageHandler"
+                            },
+                            {
+                                "name": "pong:Integer",
+                                "targetStates": [],
+                                "targetFunc": [],
+                                "$__type": "StateAnalysesResultMessageHandler"
+                            }
+                        ],
+                        "$__type": "StateAnalysesResultState"
+                    }
+                },
+                "$__type": "StateAnalysesResultFSM"
+            }
+        },
+        "$__type": "StateAnalysesResultModule"
+    }
+}

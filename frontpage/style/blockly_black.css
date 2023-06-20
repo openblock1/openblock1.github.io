@@ -1,0 +1,64 @@
+.blocklyToolboxDiv {
+    background-color: #262626;
+}
+
+.blocklyTreeRow {
+    margin-bottom: 0px;
+}
+
+/* 工具栏字体颜色 */
+
+.blocklyTreeLabel {
+    color: #d4d4d4;
+    font-family: 'Microsoft YaHei', 'SimHei', 'Arial';
+    font-size: 11pt;
+}
+
+.blocklyText {
+    /* ececec */
+    fill: #ffffff;
+    font-family: 'Microsoft YaHei', 'SimHei', 'Arial';
+}
+
+.blocklyText2 {
+    fill: #000000;
+    font-family: 'Microsoft YaHei', 'SimHei', 'Arial';
+}
+
+/* 编辑区域 */
+
+.blocklySvg {
+    /* background-color: #979797; */
+    background-color: #262626;
+}
+
+/*工具栏未选中鼠标移入背景色*/
+
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+    background-color: #5a5a5a;
+}
+
+/* 滚动条 */
+
+.blocklyToolboxDiv::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar-thumb:hover {
+    /*滚动条整体样式*/
+    background: #bbb;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    background: #CCC;
+}
+
+.blocklyFlyout>.blocklyFlyoutBackground {
+    fill: #575757;
+    fill-opacity: .8;
+}

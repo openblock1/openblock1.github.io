@@ -1,0 +1,38 @@
+<div>
+    <div class="ns" style="height: 33px; font-size: 22px; margin-bottom: 10px;" ref="fileUploader">
+        {{OpenBlock.i('资产')}}
+        <tooltip :content="OpenBlock.i('上传文件')" :delay="1000" theme="light">
+            <i-button size="small" style="margin-left: 15px;" @click="uploadFiles">
+                <icon type="ios-cloud-upload-outline"></icon>
+            </i-button>
+        </tooltip>
+        <i-input placeholder="搜索文件" style="width: auto;" v-model="search.name" suffix="ios-search" enter-button clearable></i-input>
+
+        <checkbox-group style="display: inline;" v-model="search.types" size="small">
+            <checkbox label="image">
+                <icon type="md-image" />图片</checkbox>
+            <checkbox label="sound">
+                <icon type="md-musical-note" />声音</checkbox>
+            <checkbox label="video">
+                <icon type="ios-videocam" />视频</checkbox>
+        </checkbox-group>
+    </div>
+    <div style="display: table;width: 670px;">
+        <!-- <i-table stripe :columns="ui_columns" :data="files"></i-table> -->
+        <card class="assetCard" v-for="file in assetsList" v-show="searchResult(file)">
+            <component :is="file.componentName" :file="file"></component>
+            <div class="assetInfo">
+                <icon v-if="file.mediaType==='image'" type="ios-image-outline" />
+                <icon v-if="file.mediaType==='sound'" type="ios-mic-outline" />
+                <icon v-if="file.mediaType==='video'" type="ios-videocam-outline" />
+                <span class="assetName">{{file.name}}</span>
+                <div class="ol">
+                    <Poptip trigger="click" @on-ok="deleteFile(file.name)" confirm transfer :title="OpenBlock.i('删除')">
+                        <a class="delete">
+                            <Icon type="md-trash" /> </a>
+                    </Poptip>
+                </div>
+            </div>
+        </card>
+    </div>
+</div>

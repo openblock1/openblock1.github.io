@@ -1,0 +1,39 @@
+<div>
+  <div solt="title" class="ns" style="height: 33px; font-size: 22px;">
+    数据
+    <tooltip content="导入Excel" :delay="1000" theme="light">
+      <i-button
+        size="small"
+        style="margin-left: 15px;"
+        @click="$root.importData"
+      >
+        <icon type="ios-cloud-upload-outline"></icon>
+      </i-button>
+    </tooltip>
+
+    <poptip confirm title="是否清除所有数据?" @on-ok="$root.clearData">
+      <i-button size="small" style="margin-left: 15px;">
+        <Icon type="ios-trash-outline" />
+      </i-button>
+    </poptip>
+    <!-- <tooltip content="清除数据结构" :delay="1000" theme="light">
+            <i-button size="small" style="margin-left:15px;" @click="$root.clearData">
+                <Icon type="ios-trash-outline" />
+            </i-button>
+        </tooltip> -->
+  </div>
+  <div id="dataTableList">
+    <Card
+      v-for="(tableName , index) in Object.keys(importer.dataReorganizingContext.compiled)"
+      class="logicCard"
+      style="width: 200px;overflow: hidden;"
+    >
+      <a @click="$root.openDataTab(tableName)">
+        <span style="word-break: keep-all; white-space: nowrap;">
+          <icon type="ios-folder"></icon>
+          {{tableName}}
+        </span>
+      </a>
+    </Card>
+  </div>
+</div>
